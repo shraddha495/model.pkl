@@ -61,7 +61,7 @@ st.markdown(
     }
     </style>
 """,
-    unsafe_allow_allowed_html=True,
+    unsafe_allow_html=True,  # Fixed: removed "allowed"
 )
 
 
@@ -120,7 +120,7 @@ if st.button("🔮 Run Prediction"):
     # Trigger Balloons for Visual Effect
     st.balloons()
 
-    # Format features matching model schema: ['Hindi', 'English', 'Science', 'Maths', 'History', 'Geograpgy', 'Total']
+    # Format features matching model schema: ['Hindi', 'English', 'Science', 'Maths', 'History', 'Geography', 'Total']
     features = np.array(
         [[hindi, english, science, maths, history, geography, calculated_total]]
     )
