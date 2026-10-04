@@ -7,22 +7,29 @@ st.set_page_config(
     page_title="Academic Score Predictor", page_icon="🎓", layout="centered"
 )
 
-# Custom CSS for Modern Styling and Prediction Effects
+# Custom CSS for Modern Styling, Glassmorphism, and Animations
 st.markdown(
     """
     <style>
-    /* Main Background & Fonts */
-    .main {
-        background-color: #f8f9fa;
+    /* Main Background with subtle gradient mesh */
+    .stApp {
+        background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
         font-family: 'Inter', sans-serif;
     }
     
-    /* Card Container Style */
-    .stCard {
+    /* Header Title Styling */
+    h1 {
+        color: #1f2937;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+
+    /* Card Container Style with Glassmorphism touch */
+    .css-1r6slb0, .stContainer {
         background-color: #ffffff;
         padding: 24px;
-        border-radius: 12px;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        border-radius: 16px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
         margin-bottom: 20px;
     }
 
@@ -33,35 +40,53 @@ st.markdown(
         color: white;
         font-size: 18px;
         font-weight: 600;
-        padding: 12px 24px;
-        border-radius: 8px;
+        padding: 14px 24px;
+        border-radius: 10px;
         border: none;
-        box-shadow: 0 4px 14px 0 rgba(124, 58, 237, 0.39);
+        box-shadow: 0 4px 14px 0 rgba(124, 58, 237, 0.4);
         transition: all 0.3s ease;
     }
     
     .stButton>button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px 0 rgba(124, 58, 237, 0.5);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px 0 rgba(124, 58, 237, 0.6);
+        background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
     }
 
-    /* Result Box Styling */
+    /* Result Box Styling with Entrance Animation */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
     .result-box {
         background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-        border: 1px solid #10b981;
-        border-radius: 10px;
-        padding: 20px;
+        border: 2px solid #10b981;
+        border-radius: 14px;
+        padding: 24px;
         text-align: center;
-        margin-top: 20px;
+        margin-top: 24px;
+        box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.2);
+        animation: fadeIn 0.5s ease-out forwards;
     }
+    
+    .result-label {
+        font-size: 16px;
+        color: #047857;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
     .result-text {
         color: #065f46;
-        font-size: 24px;
-        font-weight: bold;
+        font-size: 32px;
+        font-weight: 800;
+        margin-top: 8px;
     }
     </style>
 """,
-    unsafe_allow_html=True,  # Fixed: removed "allowed"
+    unsafe_allow_html=True,
 )
 
 
@@ -78,14 +103,14 @@ model = load_model()
 # Application Title & Subtitle
 st.title("🎓 Academic Performance Predictor")
 st.caption(
-    "Input student subject scores below to generate total predictions using your KNN model."
+    "Input student subject scores below to generate total predictions using your KNN machine learning model."
 )
 
 st.markdown("---")
 
-# Input Form
+# Input Form Layout
 with st.container():
-    st.write("### 📝 Enter Subject Scores")
+    st.write("### 📝 Enter Subject Scores (0 - 100)")
 
     col1, col2 = st.columns(2)
 
@@ -113,11 +138,11 @@ with st.container():
 
     # Automatic Total Calculation as the 7th Feature
     calculated_total = hindi + english + science + maths + history + geography
-    st.info(f"**Calculated Total Score:** {calculated_total} / 600")
+    st.info(f"📊 **Calculated Total Score:** {calculated_total} / 600")
 
 # Prediction Action
 if st.button("🔮 Run Prediction"):
-    # Trigger Balloons for Visual Effect
+    # Trigger celebratory visual effects
     st.balloons()
 
     # Format features matching model schema: ['Hindi', 'English', 'Science', 'Maths', 'History', 'Geography', 'Total']
@@ -128,15 +153,13 @@ if st.button("🔮 Run Prediction"):
     # Perform Prediction
     prediction = model.predict(features)[0]
 
-    # Display Pretty Result Output
+    # Display Pretty Result Output with Custom CSS card
     st.markdown(
         f"""
         <div class="result-box">
-            <span>Predicted Outcome / Class:</span>
+            <div class="result-label">Predicted Outcome / Class</div>
             <div class="result-text">{prediction}</div>
         </div>
         """,
         unsafe_allow_html=True,
     )
-
-    st.snow()
