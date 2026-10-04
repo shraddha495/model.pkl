@@ -7,86 +7,42 @@ st.set_page_config(
     page_title="Academic Score Predictor", page_icon="🎓", layout="centered"
 )
 
-# Custom CSS for Light Sky-Blue Background and Big Sparkling Golden Stars
+# Custom CSS for Light Smooth Sky-Blue Background and Modern Styling
 st.markdown(
     """
     <style>
-    /* Light Smooth Sky-Blue Gradient Background */
+    /* Light Smooth Sky-Blue Main Background */
     .stApp {
         background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #f0f9ff 100%);
         font-family: 'Inter', sans-serif;
-        position: relative;
-        overflow-x: hidden;
     }
-
-    /* Big Sparkling Golden Stars Background Effect for Light Theme */
-    .stApp::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: 
-            /* Large prominent golden stars */
-            radial-gradient(7px 7px at 60px 90px, #d97706, rgba(0,0,0,0)),
-            radial-gradient(8px 8px at 220px 280px, #b45309, rgba(0,0,0,0)),
-            radial-gradient(6px 6px at 380px 120px, #d97706, rgba(0,0,0,0)),
-            radial-gradient(7.5px 7.5px at 540px 350px, #b45309, rgba(0,0,0,0)),
-            radial-gradient(8px 8px at 720px 180px, #d97706, rgba(0,0,0,0)),
-            radial-gradient(6.5px 6.5px at 880px 410px, #b45309, rgba(0,0,0,0)),
-            /* Medium and smaller stars for depth */
-            radial-gradient(3.5px 3.5px at 140px 450px, #d97706, rgba(0,0,0,0)),
-            radial-gradient(3px 3px at 300px 530px, #f59e0b, rgba(0,0,0,0)),
-            radial-gradient(4px 4px at 460px 500px, #d97706, rgba(0,0,0,0)),
-            radial-gradient(2.5px 2.5px at 630px 470px, #f59e0b, rgba(0,0,0,0)),
-            radial-gradient(4.5px 4.5px at 820px 550px, #b45309, rgba(0,0,0,0));
-        background-repeat: repeat;
-        background-size: 950px 650px;
-        opacity: 0.85;
-        animation: starSparkle 3.5s ease-in-out infinite alternate;
-        z-index: 0;
-        pointer-events: none;
-    }
-
-    @keyframes starSparkle {
-        0% { transform: scale(1); opacity: 0.6; filter: drop-shadow(0 0 2px #f59e0b); }
-        50% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 6px #d97706); }
-        100% { transform: scale(1); opacity: 0.6; filter: drop-shadow(0 0 2px #f59e0b); }
-    }
-
-    /* Ensure content stays above background elements */
-    .main > div, div[data-testid="stVerticalBlock"] > div.element-container {
-        position: relative;
-        z-index: 1;
-    }
-
-    /* Card Container Style */
-    .stCard {
-        background-color: #ffffff;
-        padding: 24px;
+    
+    /* Card/Container Accent Styling */
+    div[data-testid="stVerticalBlock"] > div.element-container {
+        background-color: rgba(255, 255, 255, 0.75);
+        padding: 10px 15px;
         border-radius: 12px;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
-        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.08);
+        margin-bottom: 10px;
     }
 
     /* Prediction Button Customization */
     .stButton>button {
         width: 100%;
-        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
         color: white;
         font-size: 18px;
         font-weight: 600;
         padding: 12px 24px;
         border-radius: 8px;
         border: none;
-        box-shadow: 0 4px 14px 0 rgba(124, 58, 237, 0.39);
+        box-shadow: 0 4px 14px 0 rgba(2, 132, 199, 0.35);
         transition: all 0.3s ease;
     }
     
     .stButton>button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px 0 rgba(124, 58, 237, 0.5);
+        box-shadow: 0 6px 20px 0 rgba(2, 132, 199, 0.5);
     }
 
     /* Result Box Styling */
@@ -97,6 +53,7 @@ st.markdown(
         padding: 20px;
         text-align: center;
         margin-top: 20px;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
     }
     .result-text {
         color: #065f46;
