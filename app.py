@@ -7,78 +7,23 @@ st.set_page_config(
     page_title="Academic Score Predictor", page_icon="🎓", layout="centered"
 )
 
-# Custom CSS for Dark Sky-Blue Background and Big Sparkling Golden Stars
+# Custom CSS for Modern Styling and Prediction Effects
 st.markdown(
     """
     <style>
-    /* Dark Sky-Blue Gradient Background */
-    .stApp {
-        background: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #0b2545 100%);
+    /* Main Background & Fonts */
+    .main {
+        background-color: #f8f9fa;
         font-family: 'Inter', sans-serif;
-        position: relative;
-        overflow-x: hidden;
     }
-
-    /* Big and Small Sparkling Golden Stars Effect */
-    .stApp::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: 
-            /* Large prominent sparkling stars */
-            radial-gradient(5px 5px at 50px 80px, #ffd700, rgba(0,0,0,0)),
-            radial-gradient(6px 6px at 200px 250px, #ffdf00, rgba(0,0,0,0)),
-            radial-gradient(4.5px 4.5px at 350px 100px, #ffe066, rgba(0,0,0,0)),
-            radial-gradient(5.5px 5.5px at 500px 320px, #ffcc00, rgba(0,0,0,0)),
-            radial-gradient(6px 6px at 700px 150px, #ffea80, rgba(0,0,0,0)),
-            radial-gradient(4px 4px at 850px 380px, #ffd700, rgba(0,0,0,0)),
-            /* Medium and smaller stars for depth */
-            radial-gradient(3px 3px at 120px 420px, #ffd700, rgba(0,0,0,0)),
-            radial-gradient(2.5px 2.5px at 280px 500px, #ffdf00, rgba(0,0,0,0)),
-            radial-gradient(3px 3px at 430px 480px, #ffcc00, rgba(0,0,0,0)),
-            radial-gradient(2px 2px at 600px 450px, #ffe066, rgba(0,0,0,0)),
-            radial-gradient(3.5px 3.5px at 800px 520px, #ffea80, rgba(0,0,0,0));
-        background-repeat: repeat;
-        background-size: 900px 600px;
-        opacity: 0.85;
-        animation: starSparkle 4s ease-in-out infinite alternate;
-        z-index: 0;
-        pointer-events: none;
-    }
-
-    @keyframes starSparkle {
-        0% { transform: scale(1); opacity: 0.6; filter: brightness(0.8); }
-        50% { transform: scale(1.03); opacity: 1; filter: brightness(1.3); }
-        100% { transform: scale(1); opacity: 0.6; filter: brightness(0.8); }
-    }
-
-    /* Ensure content stays above background elements */
-    .main > div, div[data-testid="stVerticalBlock"] > div.element-container {
-        position: relative;
-        z-index: 1;
-    }
-
-    /* Text Color Fixes for Dark Theme Readability */
-    h1, h2, h3, h4, h5, h6, label, .stMarkdown p {
-        color: #f1f5f9 !important;
-    }
-
-    /* Input Fields Custom Styling */
-    .stNumberInput input {
-        background-color: #1e293b !important;
-        color: #f8fafc !important;
-        border: 1px solid #334155 !important;
-        border-radius: 8px !important;
-    }
-
-    /* Info Box Customization */
-    .stInfo {
-        background-color: rgba(30, 41, 59, 0.85) !important;
-        color: #38bdf8 !important;
-        border: 1px solid #0284c7 !important;
+    
+    /* Card Container Style */
+    .stCard {
+        background-color: #ffffff;
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        margin-bottom: 20px;
     }
 
     /* Prediction Button Customization */
@@ -102,22 +47,21 @@ st.markdown(
 
     /* Result Box Styling */
     .result-box {
-        background: linear-gradient(135deg, rgba(6, 78, 59, 0.95) 0%, rgba(4, 47, 46, 0.95) 100%);
+        background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
         border: 1px solid #10b981;
         border-radius: 10px;
         padding: 20px;
         text-align: center;
         margin-top: 20px;
-        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
     }
     .result-text {
-        color: #34d399;
+        color: #065f46;
         font-size: 24px;
         font-weight: bold;
     }
     </style>
 """,
-    unsafe_allow_html=True,
+    unsafe_allow_html=True,  # Fixed: removed "allowed"
 )
 
 
@@ -188,7 +132,7 @@ if st.button("🔮 Run Prediction"):
     st.markdown(
         f"""
         <div class="result-box">
-            <span style="color: #e2e8f0;">Predicted Outcome / Class:</span>
+            <span>Predicted Outcome / Class:</span>
             <div class="result-text">{prediction}</div>
         </div>
         """,
