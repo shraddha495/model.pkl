@@ -13,13 +13,13 @@ st.markdown(
     <style>
     /* Dark Sky-Blue Gradient Background */
     .stApp {
-        background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%);
+        background: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #0b2545 100%);
         font-family: 'Inter', sans-serif;
         position: relative;
         overflow-x: hidden;
     }
 
-    /* Big Sparkling Golden Stars Background Effect */
+    /* Big and Small Sparkling Golden Stars Effect */
     .stApp::before {
         content: "";
         position: absolute;
@@ -29,30 +29,30 @@ st.markdown(
         height: 100%;
         background-image: 
             /* Large prominent sparkling stars */
-            radial-gradient(7px 7px at 60px 90px, #ffd700, rgba(0,0,0,0)),
-            radial-gradient(8px 8px at 220px 280px, #ffdf00, rgba(0,0,0,0)),
-            radial-gradient(6px 6px at 380px 120px, #ffe066, rgba(0,0,0,0)),
-            radial-gradient(7.5px 7.5px at 540px 350px, #ffcc00, rgba(0,0,0,0)),
-            radial-gradient(8px 8px at 720px 180px, #ffea80, rgba(0,0,0,0)),
-            radial-gradient(6.5px 6.5px at 880px 410px, #ffd700, rgba(0,0,0,0)),
-            /* Medium and smaller stars for cosmic depth */
-            radial-gradient(3.5px 3.5px at 140px 450px, #ffd700, rgba(0,0,0,0)),
-            radial-gradient(3px 3px at 300px 530px, #ffdf00, rgba(0,0,0,0)),
-            radial-gradient(4px 4px at 460px 500px, #ffcc00, rgba(0,0,0,0)),
-            radial-gradient(2.5px 2.5px at 630px 470px, #ffe066, rgba(0,0,0,0)),
-            radial-gradient(4.5px 4.5px at 820px 550px, #ffea80, rgba(0,0,0,0));
+            radial-gradient(5px 5px at 50px 80px, #ffd700, rgba(0,0,0,0)),
+            radial-gradient(6px 6px at 200px 250px, #ffdf00, rgba(0,0,0,0)),
+            radial-gradient(4.5px 4.5px at 350px 100px, #ffe066, rgba(0,0,0,0)),
+            radial-gradient(5.5px 5.5px at 500px 320px, #ffcc00, rgba(0,0,0,0)),
+            radial-gradient(6px 6px at 700px 150px, #ffea80, rgba(0,0,0,0)),
+            radial-gradient(4px 4px at 850px 380px, #ffd700, rgba(0,0,0,0)),
+            /* Medium and smaller stars for depth */
+            radial-gradient(3px 3px at 120px 420px, #ffd700, rgba(0,0,0,0)),
+            radial-gradient(2.5px 2.5px at 280px 500px, #ffdf00, rgba(0,0,0,0)),
+            radial-gradient(3px 3px at 430px 480px, #ffcc00, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 600px 450px, #ffe066, rgba(0,0,0,0)),
+            radial-gradient(3.5px 3.5px at 800px 520px, #ffea80, rgba(0,0,0,0));
         background-repeat: repeat;
-        background-size: 950px 650px;
-        opacity: 0.9;
-        animation: starSparkle 3.5s ease-in-out infinite alternate;
+        background-size: 900px 600px;
+        opacity: 0.85;
+        animation: starSparkle 4s ease-in-out infinite alternate;
         z-index: 0;
         pointer-events: none;
     }
 
     @keyframes starSparkle {
-        0% { transform: scale(1); opacity: 0.55; filter: drop-shadow(0 0 2px #ffd700); }
-        50% { transform: scale(1.04); opacity: 1; filter: drop-shadow(0 0 8px #ffea80); }
-        100% { transform: scale(1); opacity: 0.55; filter: drop-shadow(0 0 2px #ffd700); }
+        0% { transform: scale(1); opacity: 0.6; filter: brightness(0.8); }
+        50% { transform: scale(1.03); opacity: 1; filter: brightness(1.3); }
+        100% { transform: scale(1); opacity: 0.6; filter: brightness(0.8); }
     }
 
     /* Ensure content stays above background elements */
@@ -61,9 +61,9 @@ st.markdown(
         z-index: 1;
     }
 
-    /* Text Color Adjustments for Dark Theme Readability */
+    /* Text Color Fixes for Dark Theme Readability */
     h1, h2, h3, h4, h5, h6, label, .stMarkdown p {
-        color: #f8fafc !important;
+        color: #f1f5f9 !important;
     }
 
     /* Input Fields Custom Styling */
